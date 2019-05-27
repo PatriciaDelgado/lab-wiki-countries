@@ -1,25 +1,23 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import countries from './countries.json'
+import { Switch, Route } from 'react-router-dom';
 import './App.css';
+import CountryDetails from './components/CountryDetail';
+
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <nav className="navbar navbar-light bg-primary">
+          <span>Wiki ountries</span>
+        </nav>
+        <div className="CountryList">
+
+        </div>
+        <Switch>
+          <Route exact path="/country/:id" component={CountryDetails} />
+        </Switch>
       </div>
     );
   }
